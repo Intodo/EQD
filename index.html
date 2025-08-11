@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LQ Calculator - BED & EQD2</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LQ Calc">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="app-icon">
+                    <div class="icon-circle">
+                        <span class="icon-text">LQ</span>
+                    </div>
+                </div>
+                <div class="app-title">
+                    <h1>LQ Calculator</h1>
+                    <p>BED & EQD2 Calculator</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="calculator-section">
+                <div class="section-header">
+                    <h2>Radiobiology Calculator</h2>
+                    <p>Calculate BED and EQD2 for radiotherapy schedules</p>
+                </div>
+
+                <div class="alpha-beta-section">
+                    <h3>Alpha/Beta Ratio</h3>
+                    <div class="alpha-beta-controls">
+                        <div class="preset-buttons">
+                            <button class="preset-btn active" data-value="10">Tumor (10)</button>
+                            <button class="preset-btn" data-value="3">Late Effects (3)</button>
+                            <button class="preset-btn" data-value="1.5">Spinal Cord (1.5)</button>
+                        </div>
+                        <div class="custom-input">
+                            <label for="custom-alpha-beta">Custom α/β:</label>
+                            <input type="number" id="custom-alpha-beta" step="0.1" min="0.1" placeholder="Enter value">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="schedules-section">
+                    <h3>Treatment Schedules</h3>
+                    <div class="schedules-container">
+                        <div class="schedule-card" data-schedule="1">
+                            <div class="schedule-header">
+                                <h4>Schedule 1</h4>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="schedule-active" checked>
+                                    <span class="checkmark"></span>
+                                    Active
+                                </label>
+                            </div>
+                            <div class="schedule-inputs">
+                                <div class="input-group">
+                                    <label for="fractions1">Fractions</label>
+                                    <div class="fraction-presets">
+                                        <button type="button" class="fraction-btn" data-fractions="5" data-schedule="1">5</button>
+                                        <button type="button" class="fraction-btn" data-fractions="6" data-schedule="1">6</button>
+                                        <button type="button" class="fraction-btn" data-fractions="10" data-schedule="1">10</button>
+                                        <button type="button" class="fraction-btn" data-fractions="15" data-schedule="1">15</button>
+                                        <button type="button" class="fraction-btn" data-fractions="20" data-schedule="1">20</button>
+                                        <button type="button" class="fraction-btn" data-fractions="30" data-schedule="1">30</button>
+                                        <button type="button" class="fraction-btn" data-fractions="33" data-schedule="1">33</button>
+                                    </div>
+                                    <input type="number" id="fractions1" step="0.1" min="1" placeholder="30">
+                                </div>
+                                <div class="input-group">
+                                    <label for="dose-per-fraction1">Dose/Fx (Gy)</label>
+                                    <div class="dose-per-fraction-presets">
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="1.8" data-schedule="1">1.8</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="2" data-schedule="1">2</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="3" data-schedule="1">3</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="4" data-schedule="1">4</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="4.5" data-schedule="1">4.5</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="5" data-schedule="1">5</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="5.5" data-schedule="1">5.5</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="6" data-schedule="1">6</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="7" data-schedule="1">7</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="8" data-schedule="1">8</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="9" data-schedule="1">9</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="10" data-schedule="1">10</button>
+                                    </div>
+                                    <input type="number" id="dose-per-fraction1" step="0.01" min="0.01" placeholder="2.0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="dose1">Total Dose (Gy)</label>
+                                    <input type="number" id="dose1" step="0.1" min="0" placeholder="60">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="schedule-card" data-schedule="2">
+                            <div class="schedule-header">
+                                <h4>Schedule 2</h4>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="schedule-active" checked>
+                                    <span class="checkmark"></span>
+                                    Active
+                                </label>
+                            </div>
+                            <div class="schedule-inputs">
+                                <div class="input-group">
+                                    <label for="fractions2">Fractions</label>
+                                    <div class="fraction-presets">
+                                        <button type="button" class="fraction-btn" data-fractions="5" data-schedule="2">5</button>
+                                        <button type="button" class="fraction-btn" data-fractions="6" data-schedule="2">6</button>
+                                        <button type="button" class="fraction-btn" data-fractions="10" data-schedule="2">10</button>
+                                        <button type="button" class="fraction-btn" data-fractions="15" data-schedule="2">15</button>
+                                        <button type="button" class="fraction-btn" data-fractions="20" data-schedule="2">20</button>
+                                        <button type="button" class="fraction-btn" data-fractions="30" data-schedule="2">30</button>
+                                        <button type="button" class="fraction-btn" data-fractions="33" data-schedule="2">33</button>
+                                    </div>
+                                    <input type="number" id="fractions2" step="0.1" min="1" placeholder="30">
+                                </div>
+                                <div class="input-group">
+                                    <label for="dose-per-fraction2">Dose/Fx (Gy)</label>
+                                    <div class="dose-per-fraction-presets">
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="1.8" data-schedule="2">1.8</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="2" data-schedule="2">2</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="3" data-schedule="2">3</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="4" data-schedule="2">4</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="4.5" data-schedule="2">4.5</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="5" data-schedule="2">5</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="5.5" data-schedule="2">5.5</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="6" data-schedule="2">6</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="7" data-schedule="2">7</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="8" data-schedule="2">8</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="9" data-schedule="2">9</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="10" data-schedule="2">10</button>
+                                    </div>
+                                    <input type="number" id="dose-per-fraction2" step="0.01" min="0.01" placeholder="2.0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="dose2">Total Dose (Gy)</label>
+                                    <input type="number" id="dose2" step="0.1" min="0" placeholder="60">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="schedule-card" data-schedule="3">
+                            <div class="schedule-header">
+                                <h4>Schedule 3</h4>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="schedule-active">
+                                    <span class="checkmark"></span>
+                                    Active
+                                </label>
+                            </div>
+                            <div class="schedule-inputs">
+                                <div class="input-group">
+                                    <label for="fractions3">Fractions</label>
+                                    <div class="fraction-presets">
+                                        <button type="button" class="fraction-btn" data-fractions="5" data-schedule="3">5</button>
+                                        <button type="button" class="fraction-btn" data-fractions="6" data-schedule="3">6</button>
+                                        <button type="button" class="fraction-btn" data-fractions="10" data-schedule="3">10</button>
+                                        <button type="button" class="fraction-btn" data-fractions="15" data-schedule="3">15</button>
+                                        <button type="button" class="fraction-btn" data-fractions="20" data-schedule="3">20</button>
+                                        <button type="button" class="fraction-btn" data-fractions="30" data-schedule="3">30</button>
+                                        <button type="button" class="fraction-btn" data-fractions="33" data-schedule="3">33</button>
+                                    </div>
+                                    <input type="number" id="fractions3" step="0.1" min="1" placeholder="30">
+                                </div>
+                                <div class="input-group">
+                                    <label for="dose-per-fraction3">Dose/Fx (Gy)</label>
+                                    <div class="dose-per-fraction-presets">
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="1.8" data-schedule="3">1.8</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="2" data-schedule="3">2</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="3" data-schedule="3">3</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="4" data-schedule="3">4</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="4.5" data-schedule="3">4.5</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="5" data-schedule="3">5</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="5.5" data-schedule="3">5.5</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="6" data-schedule="3">6</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="7" data-schedule="3">7</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="8" data-schedule="3">8</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="9" data-schedule="3">9</button>
+                                        <button type="button" class="dose-per-fraction-btn" data-dose="10" data-schedule="3">10</button>
+                                    </div>
+                                    <input type="number" id="dose-per-fraction3" step="0.01" min="0.01" placeholder="2.0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="dose3">Total Dose (Gy)</label>
+                                    <input type="number" id="dose3" step="0.1" min="0" placeholder="60">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calculation-section">
+                    <button id="calculate-btn" class="calculate-button">Calculate BED & EQD2</button>
+                    
+                    <div class="results-container">
+                        <div class="results-header">
+                            <h3>Results</h3>
+                            <div class="alpha-beta-display">
+                                <span>α/β = <span id="current-alpha-beta">10</span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <h4>Individual Schedules</h4>
+                                <div id="individual-results" class="results-list">
+                                    <!-- Individual results will be populated here -->
+                                </div>
+                            </div>
+                            
+                            <div class="result-card">
+                                <h4>Combined Results</h4>
+                                <div class="combined-results">
+                                    <div class="result-item">
+                                        <span class="result-label">Total EQD2:</span>
+                                        <span id="total-eqd2" class="result-value">-</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <span class="result-label">Total BED:</span>
+                                        <span id="total-bed" class="result-value">-</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <span class="result-label">Total Dose:</span>
+                                        <span id="total-dose" class="result-value">-</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <span class="result-label">Total Fractions:</span>
+                                        <span id="total-fractions" class="result-value">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>&copy; 2024 LQ Calculator - Radiobiology Tool</p>
+            <p>Based on Linear Quadratic Model</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
